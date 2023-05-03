@@ -44,13 +44,17 @@ public class Missile : MonoBehaviour
         }
 
         // Rotate left
-        if (Input.GetKey (KeyCode.A))
+        // SAMUEL: I swapped the key from A to D to make the rotation uninverted
+        // Original: if (Input.GetKey (KeyCode.A))
+        if (Input.GetKey (KeyCode.D))
         {
             transform.Rotate (rotationSpeed * new Vector3 (0, -1, 0));
         }
 
         // Rotate right
-        if (Input.GetKey (KeyCode.D))
+        // SAMUEL: I swapped the key from D to A to make the rotation uninverted
+        // Original: if (Input.GetKey (KeyCode.D)) 
+        if (Input.GetKey (KeyCode.A))
         {
             transform.Rotate (rotationSpeed * new Vector3 (0, 1, 0));
         }
