@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyScript: MonoBehaviour
+public class EnemyScript: MonoBehaviour //I used the unity manual/documentation and https://www.youtube.com/watch?v=atCOd4o7tG4&ab_channel=CodeMonkey as references.
 {
     public Transform movePositionTransform;
     public int maxHitPoints = 1;
-    private int hitPoints;
+    public int hitPoints;
     private NavMeshAgent myNavMeshAgent;
     private Vector3 startingPosition;
 
-    // Start is called before the first frame update
-    void Start()
+    // I tried using Awake and I tried using Start, neither did exactly what I wanted, which was to have them teleport to where they started when they got hit.
+    void Awake()
     {
         hitPoints = maxHitPoints;
         myNavMeshAgent = GetComponent<NavMeshAgent>();
