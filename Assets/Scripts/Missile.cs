@@ -8,13 +8,20 @@ public class Missile : MonoBehaviour
     public float thrustMultiplier;
     public float rotationSpeed;
     private bool applyThrust = false;
+    private Vector3 startingPosition;
     public AudioSource rocketFlyingSound; // component for the rocket flying sound
+    
+    void Start () { 
+        transform.forward = transform.up;
+        startingPosition = transform.position; // get position on start
+    }
 
-    void Start () { transform.forward = transform.up; }
-
-    // function for destroying missile on collision
+    // function for moving missile to starting point on collision
     void OnCollisionEnter(Collision collision){
-        Destroy(this.gameObject);
+        transform.position = startingPosition;
+        // slows it down after moving to starting point
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;   
     }
 
     // Check for misc keypresses
