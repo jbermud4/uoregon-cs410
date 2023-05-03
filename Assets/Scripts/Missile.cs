@@ -8,6 +8,7 @@ public class Missile : MonoBehaviour
     public float thrustMultiplier;
     public float rotationSpeed;
     private bool applyThrust = false;
+    public AudioSource rocketFlyingSound; // component for the rocket flying sound
 
     void Start () { transform.forward = transform.up; }
 
@@ -71,5 +72,14 @@ public class Missile : MonoBehaviour
         CheckMiscKeys ();
         CheckRotationKeys ();
         ApplyRocketThrust ();
+
+                // Condtional check if missile is moving, if true: play sound else stop
+        if(GetComponent<Rigidbody>().velocity.magnitude > 0){
+            if(!rocketFlyingSound.isPlaying){
+                rocketFlyingSound.Play();
+            }
+        } else {
+            rocketFlyingSound.Stop();
+        }
     }
 }
