@@ -10,6 +10,7 @@ public class Missile : MonoBehaviour
     private bool applyThrust = false;
     private Vector3 startingPosition;
     public AudioSource rocketFlyingSound; // component for the rocket flying sound
+
     
     void Start () { 
         transform.forward = transform.up;
@@ -20,6 +21,7 @@ public class Missile : MonoBehaviour
     void OnCollisionEnter(Collision collision){
         transform.position = startingPosition;
         // slows it down after moving to starting point
+        applyThrust = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;   
     }
