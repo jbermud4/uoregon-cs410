@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7891139309188055103}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePositionTransform: {fileID: 0}
   maxHitPoints: 1
+  hitPoints: 0
 --- !u!54 &6528950504273739440
 Rigidbody:
   m_ObjectHideFlags: 0

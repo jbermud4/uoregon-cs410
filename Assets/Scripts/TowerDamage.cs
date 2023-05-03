@@ -17,8 +17,11 @@ public class TowerDamage : MonoBehaviour
     // Inspired by roll-a-ball
     private void OnTriggerEnter(Collider other) //Sometimes I take 2 damage, sometimes I take 1, I don't know why, but it works for the POC.
     {
-        myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
-        damageTaken += myEnemyScript.hitPoints;
-        damageText.text = "Damage Taken: " + damageTaken.ToString();
+        if(other.gameObject.tag == "Enemy")
+        {
+            myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
+            damageTaken += myEnemyScript.hitPoints;
+            damageText.text = "Damage Taken: " + damageTaken.ToString();
+        }
     }
 }
