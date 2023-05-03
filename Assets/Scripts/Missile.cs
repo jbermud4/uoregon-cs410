@@ -12,6 +12,11 @@ public class Missile : MonoBehaviour
 
     void Start () { transform.forward = transform.up; }
 
+    // function for destroying missile on collision
+    void OnCollisionEnter(Collision collision){
+        Destroy(this.gameObject);
+    }
+
     // Check for misc keypresses
     void CheckMiscKeys ()
     {
