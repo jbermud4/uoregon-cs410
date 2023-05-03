@@ -24,7 +24,7 @@ public class EnemyScript: MonoBehaviour //I used the unity manual/documentation 
     {
         if (hitPoints > 1)
         {
-            hitPoints = -1;
+            hitPoints =- 1;
         }
         else
         {
