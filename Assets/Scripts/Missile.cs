@@ -13,7 +13,8 @@ public class Missile : MonoBehaviour
 
     
     void Start () { 
-        transform.forward = transform.up;
+        // EDIT: I took this out since it was doing weird things with the starting camera position
+        //transform.forward = transform.up;
         startingPosition = transform.position; // get position on start
     }
 
@@ -48,13 +49,13 @@ public class Missile : MonoBehaviour
         // Rotate forward
         if (Input.GetKey (KeyCode.W))
         {
-            transform.Rotate (rotationSpeed * new Vector3 (1, 0, 0));
+            transform.Rotate (rotationSpeed * new Vector3 (-1, 0, 0));
         }
 
         // Rotate backwards
         if (Input.GetKey (KeyCode.S))
         {
-            transform.Rotate (rotationSpeed * new Vector3 (-1, 0, 0));
+            transform.Rotate (rotationSpeed * new Vector3 (1, 0, 0));
         }
 
         // Rotate left
@@ -62,7 +63,7 @@ public class Missile : MonoBehaviour
         // Original: if (Input.GetKey (KeyCode.A))
         if (Input.GetKey (KeyCode.D))
         {
-            transform.Rotate (rotationSpeed * new Vector3 (0, -1, 0));
+            transform.Rotate (rotationSpeed * new Vector3 (0, 1, 0));
         }
 
         // Rotate right
@@ -70,7 +71,7 @@ public class Missile : MonoBehaviour
         // Original: if (Input.GetKey (KeyCode.D)) 
         if (Input.GetKey (KeyCode.A))
         {
-            transform.Rotate (rotationSpeed * new Vector3 (0, 1, 0));
+            transform.Rotate (rotationSpeed * new Vector3 (0, -1, 0));
         }
     }
 
