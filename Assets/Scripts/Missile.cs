@@ -10,6 +10,7 @@ public class Missile : MonoBehaviour
     private bool applyThrust = false;
     private Vector3 startingPosition;
     public AudioSource rocketFlyingSound; // component for the rocket flying sound
+    public AudioSource collisionExplosion;
 
     
     void Start () { 
@@ -24,7 +25,10 @@ public class Missile : MonoBehaviour
         // slows it down after moving to starting point
         applyThrust = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;   
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        if (collision.gameObject.CompareTag("Enemy")){
+            collisionExplosion.Play();
+        }
     }
 
     // Check for misc keypresses
