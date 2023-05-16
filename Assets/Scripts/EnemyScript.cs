@@ -10,6 +10,7 @@ public class EnemyScript: MonoBehaviour //I used the unity manual/documentation 
     public int hitPoints;
     private NavMeshAgent myNavMeshAgent;
     private Vector3 startingPosition;
+    private Missile missileScript;
 
     // I tried using Awake and I tried using Start, neither did exactly what I wanted, which was to have them teleport to where they started when they got hit.
     void Awake()
@@ -22,14 +23,27 @@ public class EnemyScript: MonoBehaviour //I used the unity manual/documentation 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hitPoints > 1)
+        if (other.gameObject.tag == "Missile")
         {
-            hitPoints =- 1;
+            missileScript = other.gameObject.GetComponent<Missile>();
+            if (hitPoints > missileScript.damage)
+            {
+                hitPoints -= missileScript.damage;
+            }
+            else
+            {
+                respawn();
+            }
         }
         else
         {
-            gameObject.transform.position = startingPosition;
-            hitPoints = maxHitPoints;
+            respawn();
         }
+    }
+    void respawn()
+    {
+        hitPoints = maxHitPoints;
+        myNavMeshAgent.Warp(startingPosition);
+        myNavMeshAgent.destination = movePositionTransform.position;
     }
 }

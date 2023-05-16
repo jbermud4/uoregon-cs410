@@ -11,6 +11,7 @@ public class Missile : MonoBehaviour
     private Vector3 startingPosition;
     public AudioSource rocketFlyingSound; // component for the rocket flying sound
     public AudioSource collisionExplosion;
+    public int damage = 1;
 
     
     void Start () { 
