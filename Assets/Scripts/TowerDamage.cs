@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TowerDamage : MonoBehaviour
 {
-    private int damageTaken;
+    public int maxHealth;
+    private int Health;
+    //private int damageTaken;
     private EnemyScript myEnemyScript;
     public TextMeshProUGUI damageText;
     // Start is called before the first frame update
     void Start()
     {
-        damageTaken = 0;
+        //damageTaken = 0;
+        Health = maxHealth;
+        damageText.text = "Health: " + Health.ToString() + "/" + maxHealth.ToString();
     }
 
     // Inspired by roll-a-ball
@@ -20,8 +25,12 @@ public class TowerDamage : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
-            damageTaken += myEnemyScript.hitPoints;
-            damageText.text = "Damage Taken: " + damageTaken.ToString();
+            Health -= myEnemyScript.hitPoints;
+            damageText.text = "Health: " + Health.ToString() + "/" + maxHealth.ToString();
+            if (Health <= 0)
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
         }
     }
 }
