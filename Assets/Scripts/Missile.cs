@@ -51,6 +51,7 @@ public class Missile : MonoBehaviour
     // Check for rotation keypresses
     void CheckRotationKeys ()
     {
+        // TODO: Switch rotation from Euler angles to quaternions?
         // Rotate forward
         if (Input.GetKey (KeyCode.W))
         {
@@ -77,6 +78,18 @@ public class Missile : MonoBehaviour
         if (Input.GetKey (KeyCode.A))
         {
             transform.Rotate (rotationSpeed * new Vector3 (0, -1, 0));
+        }
+
+        // Roll left
+        if (Input.GetKey (KeyCode.Q))
+        {
+            transform.Rotate(rotationSpeed * new Vector3(0, 0, 1));
+        }
+
+        // Roll right
+        if (Input.GetKey (KeyCode.E))
+        {
+            transform.Rotate(rotationSpeed * new Vector3(0, 0, -1));
         }
     }
 
