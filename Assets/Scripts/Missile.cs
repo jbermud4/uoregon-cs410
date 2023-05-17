@@ -12,6 +12,7 @@ public class Missile : MonoBehaviour
     public AudioSource rocketFlyingSound; // component for the rocket flying sound
     public AudioSource collisionExplosion;
     public int damage = 1;
+    public ParticleSystem exhaustParticles;
 
     
     void Start () { 
@@ -115,8 +116,12 @@ public class Missile : MonoBehaviour
             if(!rocketFlyingSound.isPlaying){
                 rocketFlyingSound.Play();
             }
+            if(!exhaustParticles.isPlaying) {
+                exhaustParticles.Play();
+            }
         } else {
             rocketFlyingSound.Stop();
+            exhaustParticles.Stop();
         }
     }
 }
