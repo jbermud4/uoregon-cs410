@@ -9,6 +9,7 @@ public class Missile : MonoBehaviour
     public float rotationSpeed;
     private bool applyThrust = false;
     private Vector3 startingPosition;
+    private Quaternion startingRotation;
     public AudioSource rocketFlyingSound; // component for the rocket flying sound
     public AudioSource collisionExplosion;
     public int damage = 1;
@@ -19,11 +20,13 @@ public class Missile : MonoBehaviour
         // EDIT: I took this out since it was doing weird things with the starting camera position
         //transform.forward = transform.up;
         startingPosition = transform.position; // get position on start
+        startingRotation = transform.rotation; // get the rotation on start
     }
 
     // function for moving missile to starting point on collision
     void OnCollisionEnter(Collision collision){
         transform.position = startingPosition;
+        transform.rotation = startingRotation;
         // slows it down after moving to starting point
         applyThrust = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
