@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 // https://codereview.stackexchange.com/questions/85319/rocket-controller-for-a-unity-game
 
@@ -15,12 +17,20 @@ public class Missile : MonoBehaviour
     public int damage = 1;
     public ParticleSystem exhaustParticles;
 
+    public int scoreNeeded;             //Managing score
+    private int scoreLeft;
+    public TextMeshProUGUI scoreText;
+    private EnemyScript enemyScript;
+    
+
     
     void Start () { 
         // EDIT: I took this out since it was doing weird things with the starting camera position
         //transform.forward = transform.up;
         startingPosition = transform.position; // get position on start
         startingRotation = transform.rotation; // get the rotation on start
+        scoreLeft = scoreNeeded;
+        scoreText.text = "Score left: " + scoreLeft.ToString();
     }
 
     // function for moving missile to starting point on collision
@@ -33,6 +43,13 @@ public class Missile : MonoBehaviour
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         if (collision.gameObject.CompareTag("Enemy")){
             collisionExplosion.Play();
+            enemyScript = collision.gameObject.GetComponent<EnemyScript>();
+            scoreLeft -= enemyScript.worth;
+            scoreText.text = "Score left: " + scoreLeft.ToString();
+            if (scoreLeft <= 0)
+            {
+                SceneManager.LoadScene("Main Menu");    //You win!!! Probably needs a better transition.
+            }
         }
     }
 
