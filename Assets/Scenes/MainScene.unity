@@ -1962,7 +1962,7 @@ MonoBehaviour:
   collisionExplosion: {fileID: 1681895538}
   damage: 1
   exhaustParticles: {fileID: 1944522553}
-  scoreNeeded: 0
+  scoreNeeded: 3
   scoreText: {fileID: 902028340}
 --- !u!54 &1605546796
 Rigidbody:

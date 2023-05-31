@@ -18,7 +18,7 @@ public class Missile : MonoBehaviour
     public ParticleSystem exhaustParticles;
 
     public int scoreNeeded;             //Managing score
-    private int scoreLeft;
+    private int scoreLeft = 0;
     public TextMeshProUGUI scoreText;
     private EnemyScript enemyScript;
     
