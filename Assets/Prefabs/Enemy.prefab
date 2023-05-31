@@ -139,6 +139,7 @@ MonoBehaviour:
   movePositionTransform: {fileID: 0}
   maxHitPoints: 1
   hitPoints: 0
+  worth: 1
 --- !u!54 &6528950504273739440
 Rigidbody:
   m_ObjectHideFlags: 0
