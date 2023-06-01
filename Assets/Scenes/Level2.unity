@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 30
+    agentSlope: 25
     agentClimb: 0.5
     ledgeDropHeight: 1
     maxJumpAcrossDistance: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 2cdf7f5400b1fbb449eda2b2ba29208e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 482a0171e41baba40b554890599ea79a, type: 2}
 --- !u!1 &8175311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.5
+      value: -20.23
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1158,7 +1158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -327.6
+      value: -202.9
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1631,15 +1631,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2500
+      value: 1250
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1647,7 +1647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1681,6 +1681,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -1695,7 +1699,11 @@ PrefabInstance:
       objectReference: {fileID: 1350452571220639260, guid: f49607ed51e7bbd438e28d5464ad1543, type: 3}
     - target: {fileID: 919132149155446097, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
       propertyPath: m_Name
-      value: CanyonTunnels1
+      value: Caverns
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a416f08fd8f09e44aa79f6ea3dd4844, type: 3}
@@ -2017,7 +2025,6 @@ GameObject:
   - component: {fileID: 1605546796}
   - component: {fileID: 1605546795}
   - component: {fileID: 1605546798}
-  - component: {fileID: 1605546799}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Missile
@@ -2093,20 +2100,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1605546799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605546794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2752fb3177def4b1b801ed57e507972e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHeight: 8
-  HeightMessage: {fileID: 923970344}
 --- !u!1 &1647042069
 GameObject:
   m_ObjectHideFlags: 0
@@ -12246,7 +12239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.7
+      value: -23.3
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12254,7 +12247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -412.3
+      value: -166.3
       objectReference: {fileID: 0}
     - target: {fileID: 97408020897999782, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_LocalRotation.w
