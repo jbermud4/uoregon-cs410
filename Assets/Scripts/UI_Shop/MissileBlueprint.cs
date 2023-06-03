@@ -4,12 +4,12 @@ using UnityEngine;
 
 [System.Serializable]
 
-public class MissileBlueprint : MonoBehaviour
+public class MissileBlueprint
 {
-    public new string name;
+    public string name;
     public int index;
     public int price;
 
     public bool isUnlocked;
 
-}
+};
