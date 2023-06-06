@@ -11,4 +11,12 @@ public class LevelSelect : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void loadLevelTwo()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+    public void loadLevelThree()
+    {
+        SceneManager.LoadScene("Level3-Moon");
+    }
 }
