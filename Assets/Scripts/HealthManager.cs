@@ -8,7 +8,7 @@ public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
     private float healthAmount;
-    private EnemyScript myEnemyScript;
+    //private EnemyScript myEnemyScript;
 
 
     void Start(){
@@ -27,8 +27,10 @@ public class HealthManager : MonoBehaviour
         healthBar.fillAmount = healthAmount / 100f;
     }
 
-    private void OnTriggerEnter(Collider other){
-        if(other.gameObject.tag == "Enemy"){
+    void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "Enemy"){
+            //myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
+            
             TakeDamage(25);
             if (healthAmount <= 0){
                 SceneManager.LoadScene("Main Menu");
