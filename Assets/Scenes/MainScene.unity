@@ -408,7 +408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2095233193}
-  healthAmount: 100
 --- !u!4 &280051601
 Transform:
   m_ObjectHideFlags: 0
@@ -7053,7 +7052,7 @@ GameObject:
   - component: {fileID: 1817064501}
   - component: {fileID: 1817064505}
   m_Layer: 0
-  m_Name: TestCylinder
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7147,11 +7146,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1817064500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff95042a5818e8448d518497f92c370, type: 3}
+  m_Script: {fileID: 11500000, guid: 702133a55f5654d57a35c1d259f160e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  damageText: {fileID: 743170628}
+  healthBar: {fileID: 0}
 --- !u!1001 &1837114097
 PrefabInstance:
   m_ObjectHideFlags: 0
