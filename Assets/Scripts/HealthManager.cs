@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class HealthManager : MonoBehaviour
 {
@@ -27,10 +28,19 @@ public class HealthManager : MonoBehaviour
         healthBar.fillAmount = healthAmount / 100f;
     }
 
-    void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.tag == "Enemy"){
-            //myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
-            
+    // void OnCollisionEnter(Collision collision){
+    //     if(collision.collider.CompareTag("Enemy")){
+    //         //myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
+    //         Debug.Log("TakeDamage");
+    //         TakeDamage(25);
+    //         if (healthAmount <= 0){
+    //             SceneManager.LoadScene("Main Menu");
+    //         }
+    //     }
+    // }
+    private void OnTriggerEnter(Collider other){
+        if(other.gameObject.CompareTag("Enemy")){
+            Debug.Log("TakeDamage");
             TakeDamage(25);
             if (healthAmount <= 0){
                 SceneManager.LoadScene("Main Menu");

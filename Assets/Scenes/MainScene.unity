@@ -1187,6 +1187,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_Size.z
+      value: 12.232364
+      objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_Center.y
+      value: 2.8646977
+      objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_Center.z
+      value: 0.20024458
+      objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 491078629701632642, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: movePositionTransform
       value: 
@@ -12167,6 +12183,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_Size.z
+      value: 11.610009
+      objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_Center.y
+      value: 2.8646977
+      objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_Center.z
+      value: 0.4218018
+      objectReference: {fileID: 0}
+    - target: {fileID: 491078629701632640, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 491078629701632642, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: movePositionTransform
       value: 
@@ -12184,6 +12216,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4854723340782445395, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
+      propertyPath: m_Height
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854723340782445395, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
+      propertyPath: m_Radius
+      value: 0.023
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854723340782445395, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
+      propertyPath: m_Center.z
+      value: 0.03480831
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854723340782445395, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
+      propertyPath: m_Direction
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4960090833186711286, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
       propertyPath: m_RootOrder
       value: 5
