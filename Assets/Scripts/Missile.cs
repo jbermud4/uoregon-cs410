@@ -21,7 +21,7 @@ public class Missile : MonoBehaviour
     public int scoreNeeded;             //Managing score
     private int scoreLeft = 0;
     public TextMeshProUGUI scoreText;
-    private EnemyScript enemyScript;
+    //private EnemyScript enemyScript;
 
     public TextMeshProUGUI winText;
     
@@ -64,13 +64,6 @@ public class Missile : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             collisionExplosion.Play();
-            enemyScript = other.gameObject.GetComponent<EnemyScript>();
-            scoreLeft -= enemyScript.worth;
-            scoreText.text = "Score left: " + scoreLeft.ToString();
-            if (scoreLeft <= 0)
-            {
-                StartCoroutine(EndingWin());
-            }
             respawn();
         }
     }
@@ -83,6 +76,17 @@ public class Missile : MonoBehaviour
         yield return new WaitForSecondsRealtime(5);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void Score(int value)
+    {
+        scoreLeft -= value;
+        scoreText.text = "Score left: " + scoreLeft.ToString();
+        if (scoreLeft <= 0)
+        {
+            scoreText.text = "Score left: 0!";
+            StartCoroutine(EndingWin());
+        }
     }
 
     // Check for misc keypresses

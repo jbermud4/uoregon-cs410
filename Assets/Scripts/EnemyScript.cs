@@ -34,6 +34,7 @@ public class EnemyScript: MonoBehaviour //I used the unity manual/documentation 
             else
             {
                 respawn();
+                missileScript.Score(worth);
             }
         }
         else
