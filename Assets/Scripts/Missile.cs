@@ -21,6 +21,8 @@ public class Missile : MonoBehaviour
     private int scoreLeft = 0;
     public TextMeshProUGUI scoreText;
     private EnemyScript enemyScript;
+
+    public TextMeshProUGUI winText;
     
 
     
@@ -48,9 +50,18 @@ public class Missile : MonoBehaviour
             scoreText.text = "Score left: " + scoreLeft.ToString();
             if (scoreLeft <= 0)
             {
-                SceneManager.LoadScene("Main Menu");    //You win!!! Probably needs a better transition.
+                StartCoroutine(EndingWin());
             }
         }
+    }
+
+    IEnumerator EndingWin()
+    {
+        Time.timeScale = 0f;
+        winText.text = "You Win!";
+        yield return new WaitForSecondsRealtime(5);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main Menu");
     }
 
     // Check for misc keypresses
