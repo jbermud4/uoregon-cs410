@@ -323,6 +323,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4854723340782445228, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 796141424}
     - target: {fileID: 4960090833186711286, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1531,6 +1535,7 @@ MonoBehaviour:
   rotationSpeed: 2
   rocketFlyingSound: {fileID: 685883460}
   collisionExplosion: {fileID: 1681895538}
+  WinSound: {fileID: 0}
   damage: 1
   exhaustParticles: {fileID: 1944522553}
   scoreNeeded: 3
