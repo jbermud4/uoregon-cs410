@@ -36,23 +36,42 @@ public class Missile : MonoBehaviour
         scoreText.text = "Score left: " + scoreLeft.ToString();
     }
 
-    // function for moving missile to starting point on collision
-    void OnCollisionEnter(Collision collision){
+    void respawn()
+    {
         transform.position = startingPosition;
         transform.rotation = startingRotation;
         // slows it down after moving to starting point
         applyThrust = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        if (collision.gameObject.CompareTag("Enemy")){
+    }
+
+    // function for moving missile to starting point on collision
+    void OnCollisionEnter(Collision collision){ //For hitting walls.
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            return;
+        }
+        else
+        {
             collisionExplosion.Play();
-            enemyScript = collision.gameObject.GetComponent<EnemyScript>();
+            respawn();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) //For hitting the enemy.
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            collisionExplosion.Play();
+            enemyScript = other.gameObject.GetComponent<EnemyScript>();
             scoreLeft -= enemyScript.worth;
             scoreText.text = "Score left: " + scoreLeft.ToString();
             if (scoreLeft <= 0)
             {
                 StartCoroutine(EndingWin());
             }
+            respawn();
         }
     }
 
@@ -145,7 +164,7 @@ public class Missile : MonoBehaviour
         ApplyRocketThrust ();
 
                 // Condtional check if missile is moving, if true: play sound else stop
-        if(GetComponent<Rigidbody>().velocity.magnitude > 0){
+        if(applyThrust == true){
             if(!rocketFlyingSound.isPlaying){
                 rocketFlyingSound.Play();
             }
