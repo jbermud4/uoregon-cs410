@@ -65,7 +65,8 @@ public class Missile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
         {
             Debug.Log("Hit Enemy or Arrow");
-            return;
+            respawn();
+            collisionExplosion.Play();
         }
         else
         {
