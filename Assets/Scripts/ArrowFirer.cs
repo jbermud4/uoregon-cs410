@@ -18,7 +18,7 @@ public class ArrowFirer : MonoBehaviour
     void Update()
     {
         delayLeft -= Time.deltaTime;
-        if ((delayLeft <= 0) || (Physics.Raycast(transform.position, missile.position, 100f)))
+        if ((delayLeft <= 0) && (Physics.Raycast(transform.position, missile.position, 100f)))
         {
             Instantiate(projectile, transform.position, transform.rotation);
             delayLeft = fireDelay;
