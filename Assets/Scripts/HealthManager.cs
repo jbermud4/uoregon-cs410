@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class HealthManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class HealthManager : MonoBehaviour
     private EnemyScript myEnemyScript;
     private ArrowScript arrowScript;
     private int damage;
+    public TextMeshProUGUI loseText;
 
 
     void Start(){
@@ -53,5 +55,13 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-
+    IEnumerator EndingWin()
+    {
+        Time.timeScale = 0f;
+        loseText.text = "You Lose!";
+        //WinSound.Play();
+        yield return new WaitForSecondsRealtime(5);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main Menu");
+    }
 }

@@ -5127,6 +5127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2095233193}
+  loseText: {fileID: 1312817762}
 --- !u!4 &280051601
 Transform:
   m_ObjectHideFlags: 0
