@@ -50,7 +50,7 @@ public class Missile : MonoBehaviour
 
     // function for moving missile to starting point on collision
     void OnCollisionEnter(Collision collision){ //For hitting walls.
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
         {
             return;
         }
