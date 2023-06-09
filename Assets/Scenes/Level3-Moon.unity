@@ -1838,7 +1838,10 @@ MonoBehaviour:
   collisionExplosion: {fileID: 1681895538}
   WinSound: {fileID: 0}
   damage: 1
+  health: 3
   exhaustParticles: {fileID: 1944522553}
+  impactParticles: {fileID: 6146414956398523578, guid: 8103f36a46ead473b976c725b5b4a61a, type: 3}
+  mesh: {fileID: 1837114099}
   scoreNeeded: 3
   scoreText: {fileID: 796141423}
   winText: {fileID: 796141422}
@@ -6926,6 +6929,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f48f84fcf02b47646a9e37122b662d68, type: 3}
+--- !u!23 &1837114098 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: f48f84fcf02b47646a9e37122b662d68, type: 3}
+  m_PrefabInstance: {fileID: 1837114097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1837114099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553341879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22087ba06f47f4dad96c4ca0ac426f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1837114098}
 --- !u!1001 &1912749048
 PrefabInstance:
   m_ObjectHideFlags: 0
