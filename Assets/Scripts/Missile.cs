@@ -16,6 +16,7 @@ public class Missile : MonoBehaviour
     public AudioSource collisionExplosion;
     public AudioSource WinSound;
     public int damage = 1;
+    public int health = 3;
     public ParticleSystem exhaustParticles;
 
     public int scoreNeeded;             //Managing score
@@ -36,7 +37,7 @@ public class Missile : MonoBehaviour
         scoreText.text = "Score left: " + scoreLeft.ToString();
     }
 
-    void respawn()
+    public void respawn()
     {
         transform.position = startingPosition;
         transform.rotation = startingRotation;
