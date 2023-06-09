@@ -35,11 +35,11 @@ public class Missile : MonoBehaviour
     void Start () { 
         // EDIT: I took this out since it was doing weird things with the starting camera position
         //transform.forward = transform.up;
-        rb = GetComponent<Rigidbody>();
+        // rb = GetComponent<Rigidbody>();
         startingPosition = transform.position; // get position on start
         startingRotation = transform.rotation; // get the rotation on start
         scoreLeft = scoreNeeded;
-        scoreText.text = "Score left: " + scoreLeft.ToString();
+        scoreText.text = "Enemies left: " + scoreLeft.ToString();
         healthMax = health;
     }
 
@@ -111,10 +111,10 @@ public class Missile : MonoBehaviour
     public void Score(int value)
     {
         scoreLeft -= value;
-        scoreText.text = "Score left: " + scoreLeft.ToString();
+        scoreText.text = "Enemies left: " + scoreLeft.ToString();
         if (scoreLeft <= 0)
         {
-            scoreText.text = "Score left: 0!";
+            scoreText.text = "Enemies left: 0!";
             StartCoroutine(EndingWin());
         }
     }
