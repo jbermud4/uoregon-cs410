@@ -17,6 +17,7 @@ public class Missile : MonoBehaviour
     public AudioSource WinSound;
     public int damage = 1;
     public ParticleSystem exhaustParticles;
+    public ParticleSystem impactParticles;
 
     public int scoreNeeded;             //Managing score
     private int scoreLeft = 0;
@@ -64,6 +65,11 @@ public class Missile : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             collisionExplosion.Play();
+
+            // impact explosion particles
+            impactParticles.transform.position = transform.position;
+            impactParticles.Play();
+            impactParticles.Stop();
             respawn();
         }
     }
