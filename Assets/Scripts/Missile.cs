@@ -40,6 +40,9 @@ public class Missile : MonoBehaviour
 
     public void respawn()
     {
+        // enable missile gameobject again and stop explosion particles
+        gameObject.SetActive(true);
+        impactParticles.Stop();
         transform.position = startingPosition;
         transform.rotation = startingRotation;
         // slows it down after moving to starting point
@@ -67,11 +70,12 @@ public class Missile : MonoBehaviour
         {
             collisionExplosion.Play();
 
-            // impact explosion particles
+            // disable missile and play explosion particles.
+            // missile is enabled and particles stopped in respawn()
+            gameObject.SetActive(false);
             impactParticles.transform.position = transform.position;
             impactParticles.Play();
-            impactParticles.Stop();
-            respawn();
+            Invoke("respawn", 2);
         }
     }
 
