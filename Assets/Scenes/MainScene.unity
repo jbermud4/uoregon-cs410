@@ -25845,7 +25845,7 @@ MonoBehaviour:
   exhaustParticles: {fileID: 1944522553}
   impactParticles: {fileID: 403316317}
   mesh: {fileID: 1553341884}
-  rb: {fileID: 0}
+  rb: {fileID: 1605546796}
   scoreNeeded: 5
   scoreText: {fileID: 906458229}
   winText: {fileID: 906458228}
