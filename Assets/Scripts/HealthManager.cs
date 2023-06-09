@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
     private float healthAmount;
-    //private EnemyScript myEnemyScript;
+    private EnemyScript myEnemyScript;
     private ArrowScript arrowScript;
     private int damage;
+    public TextMeshProUGUI loseText;
 
 
     void Start(){
@@ -34,7 +36,8 @@ public class HealthManager : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("TakeDamage");
-            TakeDamage(25);
+            myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
+            TakeDamage(myEnemyScript.worth * 20);
             if (healthAmount <= 0){
                 SceneManager.LoadScene("Main Menu");
             }
@@ -52,5 +55,13 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-
+    IEnumerator EndingWin()
+    {
+        Time.timeScale = 0f;
+        loseText.text = "You Lose!";
+        //WinSound.Play();
+        yield return new WaitForSecondsRealtime(5);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main Menu");
+    }
 }
