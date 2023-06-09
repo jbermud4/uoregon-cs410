@@ -20,6 +20,7 @@ public class Missile : MonoBehaviour
     public ParticleSystem exhaustParticles;
     public ParticleSystem impactParticles;
     public MeshDisable mesh;
+    public Rigidbody rb;
 
     public int scoreNeeded;             //Managing score
     private int scoreLeft = 0;
@@ -33,6 +34,7 @@ public class Missile : MonoBehaviour
     void Start () { 
         // EDIT: I took this out since it was doing weird things with the starting camera position
         //transform.forward = transform.up;
+        rb = GetComponent<Rigidbody>();
         startingPosition = transform.position; // get position on start
         startingRotation = transform.rotation; // get the rotation on start
         scoreLeft = scoreNeeded;
@@ -44,6 +46,7 @@ public class Missile : MonoBehaviour
         // make missile visible again and stop explosion particles
         mesh.meshEnable(true);
         impactParticles.Stop();
+        rb.detectCollisions = true;
         
         transform.position = startingPosition;
         transform.rotation = startingRotation;
@@ -74,6 +77,7 @@ public class Missile : MonoBehaviour
 
             // make missile invisible and play explosion particles.
             mesh.meshEnable(false);
+            rb.detectCollisions = false;
 
             // we stop missile from going crazy movement after collision
             applyThrust = false;
