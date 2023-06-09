@@ -19,6 +19,7 @@ public class Missile : MonoBehaviour
     public int health = 3;
     public ParticleSystem exhaustParticles;
     public ParticleSystem impactParticles;
+    public MeshDisable mesh;
 
     public int scoreNeeded;             //Managing score
     private int scoreLeft = 0;
@@ -40,9 +41,10 @@ public class Missile : MonoBehaviour
 
     public void respawn()
     {
-        // enable missile gameobject again and stop explosion particles
-        gameObject.SetActive(true);
+        // make missile visible again and stop explosion particles
+        mesh.meshEnable(true);
         impactParticles.Stop();
+        
         transform.position = startingPosition;
         transform.rotation = startingRotation;
         // slows it down after moving to starting point
@@ -70,11 +72,17 @@ public class Missile : MonoBehaviour
         {
             collisionExplosion.Play();
 
-            // disable missile and play explosion particles.
-            // missile is enabled and particles stopped in respawn()
-            gameObject.SetActive(false);
+            // make missile invisible and play explosion particles.
+            mesh.meshEnable(false);
+
+            // we stop missile from going crazy movement after collision
+            applyThrust = false;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             impactParticles.transform.position = transform.position;
             impactParticles.Play();
+            
+            // wait 2 seconds before respawning
             Invoke("respawn", 2);
         }
     }
