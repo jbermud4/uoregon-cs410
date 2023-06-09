@@ -7,7 +7,8 @@ public class ArrowFirer : MonoBehaviour
     public int fireDelay; //Frames between firing
     //public Transform missile;
     public GameObject projectile;
-    public float delayLeft;
+    private GameObject clone;
+    private float delayLeft;
 
 
     void Start()
@@ -21,7 +22,8 @@ public class ArrowFirer : MonoBehaviour
         //if ((delayLeft <= 0) && !(Physics.Raycast(transform.position, missile.position, Vector3.Distance(transform.position, missile.position)))) Failed attempt to have line of sight
         if (delayLeft <= 0)
         {
-            Instantiate(projectile, transform.position, transform.rotation);
+            clone = Instantiate(projectile, transform.position, transform.rotation);
+            Physics.IgnoreCollision(clone.GetComponent<CapsuleCollider>(), GetComponent<BoxCollider>());
             delayLeft = fireDelay;
         }
     }

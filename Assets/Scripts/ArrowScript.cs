@@ -15,9 +15,12 @@ public class ArrowScript : MonoBehaviour
     private float innaccuracyZ;
     private Missile missileScript;
     private HealthManager towerScript;
+    private Rigidbody myRigidBody;
 
     void Awake()
     {
+        Destroy(gameObject, 45f); //Destroy self within 45s even if it doesn't hit anything.
+        myRigidBody = GetComponent<Rigidbody>();
         missile = GameObject.Find("Missile");
 
         //transform.Rotate(0, 180, 0);
@@ -29,15 +32,16 @@ public class ArrowScript : MonoBehaviour
         transform.LookAt(missile.transform);
         transform.Rotate(innaccuracyX, innaccuracyY, innaccuracyZ, Space.Self);
 
-        //These two lines taken from the Missile script.
+        //These two lines taken from the Missile script. Then slightly modified.
         Vector3 force = transform.forward * velocityStrength;
-        GetComponent<Rigidbody>().AddForce(force);
+        myRigidBody.velocity = force;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(GetComponent<CapsuleCollider>());
         Destroy(gameObject, 5f);
+        //myRigidBody.useGravity = true; Would be cool to have them fall to the ground, but this just makes them fall through the floor.
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,5 +63,6 @@ public class ArrowScript : MonoBehaviour
         //}
         Destroy(GetComponent<CapsuleCollider>());
         Destroy(gameObject, 5f);
+        //myRigidBody.useGravity = true;
     }
 }
