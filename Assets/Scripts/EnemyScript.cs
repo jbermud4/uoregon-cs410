@@ -7,7 +7,7 @@ public class EnemyScript: MonoBehaviour //I used the unity manual/documentation 
 {
     public Transform movePositionTransform;
     public int maxHitPoints = 1;
-    public int hitPoints;
+    private int hitPoints;
     public int worth;
     private NavMeshAgent myNavMeshAgent;
     private Vector3 startingPosition;

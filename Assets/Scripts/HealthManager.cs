@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
     private float healthAmount;
-    //private EnemyScript myEnemyScript;
+    private EnemyScript myEnemyScript;
     private ArrowScript arrowScript;
     private int damage;
 
@@ -34,7 +34,8 @@ public class HealthManager : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("TakeDamage");
-            TakeDamage(25);
+            myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
+            TakeDamage(myEnemyScript.worth * 20);
             if (healthAmount <= 0){
                 SceneManager.LoadScene("Main Menu");
             }

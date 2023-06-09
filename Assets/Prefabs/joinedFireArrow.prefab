@@ -131,5 +131,5 @@ MonoBehaviour:
   velocityStrength: 10
   missileDamage: 1
   towerDamage: 10
-  innaccuracyPossible: 1
+  innaccuracyPossible: 0.5
   missile: {fileID: 0}

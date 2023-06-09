@@ -25910,7 +25910,7 @@ MonoBehaviour:
   exhaustParticles: {fileID: 1944522553}
   impactParticles: {fileID: 6146414956398523578, guid: 8103f36a46ead473b976c725b5b4a61a, type: 3}
   mesh: {fileID: 2039268700}
-  scoreNeeded: 3
+  scoreNeeded: 10
   scoreText: {fileID: 902028340}
   winText: {fileID: 1312817762}
 --- !u!54 &1605546796

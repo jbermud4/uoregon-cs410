@@ -16,7 +16,8 @@ public class Missile : MonoBehaviour
     public AudioSource collisionExplosion;
     public AudioSource WinSound;
     public int damage = 1;
-    public int health = 3;
+    public int health;
+    private int healthMax;
     public ParticleSystem exhaustParticles;
     public ParticleSystem impactParticles;
     public MeshDisable mesh;
@@ -37,6 +38,7 @@ public class Missile : MonoBehaviour
         startingRotation = transform.rotation; // get the rotation on start
         scoreLeft = scoreNeeded;
         scoreText.text = "Score left: " + scoreLeft.ToString();
+        healthMax = health;
     }
 
     public void respawn()
@@ -51,16 +53,20 @@ public class Missile : MonoBehaviour
         applyThrust = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        health = healthMax;
     }
 
     // function for moving missile to starting point on collision
     void OnCollisionEnter(Collision collision){ //For hitting walls.
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
         {
+            Debug.Log("Hit Enemy or Arrow");
             return;
         }
         else
         {
+            Debug.Log("Hit not enemy or arrow");
             collisionExplosion.Play();
             respawn();
         }
@@ -70,6 +76,7 @@ public class Missile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Hit enemy");
             collisionExplosion.Play();
 
             // make missile invisible and play explosion particles.
