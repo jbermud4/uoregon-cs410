@@ -8,7 +8,8 @@ public class ArrowScript : MonoBehaviour
     public int missileDamage;
     public int towerDamage;
     public float innaccuracyPossible;
-    //public Transform missile;
+    //public Transform missileTransform;
+    public GameObject missile;
     private float innaccuracyX;
     private float innaccuracyY;
     private float innaccuracyZ;
@@ -17,10 +18,15 @@ public class ArrowScript : MonoBehaviour
 
     void Awake()
     {
+        missile = GameObject.Find("Missile");
+
+        //transform.Rotate(0, 180, 0);
+        //transform.Rotate(90, 0, 0);
+
         innaccuracyX = Random.Range(-innaccuracyPossible, innaccuracyPossible);
         innaccuracyY = Random.Range(-innaccuracyPossible, innaccuracyPossible);
         innaccuracyZ = Random.Range(-innaccuracyPossible, innaccuracyPossible);
-        //transform.LookAt(missile);
+        transform.LookAt(missile.transform);
         transform.Rotate(innaccuracyX, innaccuracyY, innaccuracyZ, Space.Self);
 
         //These two lines taken from the Missile script.

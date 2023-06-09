@@ -756,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 725572914330890524, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1728573279476418410, guid: 30a3081bd27d8c34ca60afa8805ea565, type: 3}
       propertyPath: missile
