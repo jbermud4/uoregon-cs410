@@ -28,16 +28,6 @@ public class HealthManager : MonoBehaviour
         healthBar.fillAmount = healthAmount / 100f;
     }
 
-    // void OnCollisionEnter(Collision collision){
-    //     if(collision.collider.CompareTag("Enemy")){
-    //         //myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
-    //         Debug.Log("TakeDamage");
-    //         TakeDamage(25);
-    //         if (healthAmount <= 0){
-    //             SceneManager.LoadScene("Main Menu");
-    //         }
-    //     }
-    // }
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Enemy")){
             Debug.Log("TakeDamage");
