@@ -16,6 +16,7 @@ public class ArrowScript : MonoBehaviour
     private Missile missileScript;
     private HealthManager towerScript;
     private Rigidbody myRigidBody;
+    private bool spent = false;
 
     void Awake()
     {
@@ -39,14 +40,15 @@ public class ArrowScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(GetComponent<CapsuleCollider>());
+        //Destroy(GetComponent<CapsuleCollider>());
+        spent = true;
         Destroy(gameObject, 5f);
         //myRigidBody.useGravity = true; Would be cool to have them fall to the ground, but this just makes them fall through the floor.
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Missile")
+        if (other.gameObject.tag == "Missile" && (spent == false))
         {
             missileScript = other.gameObject.GetComponent<Missile>();
             missileScript.health -= missileDamage;
@@ -61,7 +63,8 @@ public class ArrowScript : MonoBehaviour
         //    towerScript = other.gameObject.GetComponent<HealthManager>();
         //    towerScript.
         //}
-        Destroy(GetComponent<CapsuleCollider>());
+        //Destroy(GetComponent<CapsuleCollider>());
+        spent = true;
         Destroy(gameObject, 5f);
         //myRigidBody.useGravity = true;
     }

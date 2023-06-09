@@ -15781,6 +15781,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4854723340782445228, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
+      propertyPath: loseText
+      value: 
+      objectReference: {fileID: 1312817762}
+    - target: {fileID: 4854723340782445228, guid: 6e47740ee694fa04d8da817da2747629, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2095233193}
@@ -30812,7 +30816,6 @@ MonoBehaviour:
   rotationSpeed: 2
   rocketFlyingSound: {fileID: 685883460}
   collisionExplosion: {fileID: 1681895538}
-  WinSound: {fileID: 0}
   damage: 1
   health: 3
   exhaustParticles: {fileID: 1944522553}
@@ -30832,7 +30835,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 3
   m_Drag: 2
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.25
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0

@@ -39,7 +39,7 @@ public class HealthManager : MonoBehaviour
             myEnemyScript = other.gameObject.GetComponent<EnemyScript>();
             TakeDamage(myEnemyScript.worth * 20);
             if (healthAmount <= 0){
-                SceneManager.LoadScene("Main Menu");
+                StartCoroutine(EndingLose());
             }
         }
         else if (other.gameObject.CompareTag("EnemyProjectile"))
@@ -50,12 +50,12 @@ public class HealthManager : MonoBehaviour
             TakeDamage(damage);
             if (healthAmount <= 0)
             {
-                SceneManager.LoadScene("Main Menu");
+                StartCoroutine(EndingLose());
             }
         }
     }
 
-    IEnumerator EndingWin()
+    IEnumerator EndingLose()
     {
         Time.timeScale = 0f;
         loseText.text = "You Lose!";

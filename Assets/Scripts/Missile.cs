@@ -14,7 +14,7 @@ public class Missile : MonoBehaviour
     private Quaternion startingRotation;
     public AudioSource rocketFlyingSound; // component for the rocket flying sound
     public AudioSource collisionExplosion;
-    public AudioSource WinSound;
+    //public AudioSource WinSound;
     public int damage = 1;
     public int health;
     private int healthMax;
@@ -65,8 +65,7 @@ public class Missile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
         {
             Debug.Log("Hit Enemy or Arrow");
-            collisionExplosion.Play();
-            respawn();
+            return;
             
         }
         else
@@ -104,7 +103,7 @@ public class Missile : MonoBehaviour
     {
         Time.timeScale = 0f;
         winText.text = "You Win!";
-        WinSound.Play();
+        //WinSound.Play();
         yield return new WaitForSecondsRealtime(5);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu");
