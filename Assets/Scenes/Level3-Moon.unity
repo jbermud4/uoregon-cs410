@@ -6014,6 +6014,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1834745508}
     - target: {fileID: 7447043644920282339, guid: acce2c7a6c769334b85ba7be78739358, type: 3}
+      propertyPath: worth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447043644920282339, guid: acce2c7a6c769334b85ba7be78739358, type: 3}
       propertyPath: movePositionTransform
       value: 
       objectReference: {fileID: 1834745508}
@@ -6772,6 +6776,10 @@ PrefabInstance:
       propertyPath: movePositionTransform
       value: 
       objectReference: {fileID: 1834745508}
+    - target: {fileID: 7447043644920282339, guid: acce2c7a6c769334b85ba7be78739358, type: 3}
+      propertyPath: worth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7447043644920282339, guid: acce2c7a6c769334b85ba7be78739358, type: 3}
       propertyPath: movePositionTransform
       value: 
