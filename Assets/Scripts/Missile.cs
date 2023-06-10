@@ -23,6 +23,8 @@ public class Missile : MonoBehaviour
     public MeshDisable mesh;
     public Rigidbody rb;
 
+    public CameraShake cameraShake;
+
     public int scoreNeeded;             //Managing score
     private int scoreLeft = 0;
     public TextMeshProUGUI scoreText;
@@ -92,6 +94,7 @@ public class Missile : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             impactParticles.transform.position = transform.position;
+            StartCoroutine(cameraShake.Shake(1.5f, 0.3f));
             impactParticles.Play();
             
             // wait 2 seconds before respawning
