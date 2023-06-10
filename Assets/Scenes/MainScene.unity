@@ -26131,7 +26131,7 @@ MonoBehaviour:
   rocketFlyingSound: {fileID: 685883460}
   collisionExplosion: {fileID: 1681895538}
   damage: 1
-  health: 3
+  health: 1
   exhaustParticles: {fileID: 1944522553}
   impactParticles: {fileID: 403316317}
   mesh: {fileID: 1553341884}
