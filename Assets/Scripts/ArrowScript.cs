@@ -16,7 +16,7 @@ public class ArrowScript : MonoBehaviour
     private Missile missileScript;
     private HealthManager towerScript;
     private Rigidbody myRigidBody;
-    private bool spent = false;
+    public bool spent = false;
 
     void Awake()
     {

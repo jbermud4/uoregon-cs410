@@ -46,11 +46,15 @@ public class HealthManager : MonoBehaviour
         {
             Debug.Log("TakeDamage");
             arrowScript = other.gameObject.GetComponent<ArrowScript>();
-            damage = arrowScript.towerDamage;
-            TakeDamage(damage);
-            if (healthAmount <= 0)
+            if (arrowScript.spent == false)
             {
-                StartCoroutine(EndingLose());
+                damage = arrowScript.towerDamage;
+                TakeDamage(damage);
+                if (healthAmount <= 0)
+                {
+                    StartCoroutine(EndingLose());
+                }
+                arrowScript.spent = true;
             }
         }
     }
